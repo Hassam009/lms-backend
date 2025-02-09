@@ -20,7 +20,8 @@ const userSchema=new mongoose.Schema({
     role:{
         type:String,
         enum:["admin", "teacher", "student"],
-        default:"student",
+        required: true, // Make role required
+        default: "student", 
     },
     createdAt: {
         type: Date,

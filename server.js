@@ -7,10 +7,13 @@ const app = express();
 
 // Connect to MongoDB
 connectDB();
+const cors = require('cors');
+app.use(cors());
 
 // Middleware
 app.use(express.json());
-
+const authRoutes = require("./routes/auth");
+app.use("/api/auth", authRoutes)
 // Use Routes
 app.use("/user", userRoutes); // Mount the routes at "/user"
 
